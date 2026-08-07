@@ -1,0 +1,9 @@
+# Local Netlify folder
+.netlify
+.DS_Store
+
+# WaMü is published from its own repository
+wamue/
+
+# The full interview is published separately as a GitHub media release
+assets/video/ist-das-kunst-tobias-eder.mp4
