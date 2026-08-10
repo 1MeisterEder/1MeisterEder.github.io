@@ -4,3 +4,19 @@
 @media(max-width:760px){.experience-steps li{grid-template-columns:42px 1fr;gap:14px}}
 .proposal-note{margin-top:4vh;padding:16px 18px;border:1px solid var(--line);font-size:1rem!important;background:rgba(255,255,255,.35)}.sustainable-callout{padding:8vh 5vw 9vh}.sustainable-callout h2{font-size:clamp(2.7rem,5.4vw,6.4rem);line-height:.94;max-width:1450px;margin-bottom:4vh}.sustainable-callout p:not(.eyebrow){max-width:760px;font-size:1.2rem;margin:0 0 5vh}.sustainable-callout a{font-size:1.05rem}
 @media(max-width:760px){.sustainable-callout h2{font-size:3rem}.sustainable-callout p:not(.eyebrow){font-size:1.05rem}}
+
+@media(max-width:760px){
+  html,body{overflow-x:hidden}
+  .site-header{gap:14px}
+  .project-hero{padding:7vh 18px 6vh;min-height:auto}
+  .project-hero h1{font-size:clamp(3.4rem,15vw,5.8rem);line-height:.88;letter-spacing:-.06em;overflow-wrap:anywhere}
+  .project-intro{align-self:flex-start;font-size:1.08rem;line-height:1.5}
+  .full-bleed,.full-bleed.portrait{padding:18px}
+  .full-bleed img,.full-bleed.secondary img{height:auto;max-height:78vh;object-fit:contain}
+  .project-body{gap:4vh}
+  .project-body h2{font-size:clamp(2.4rem,12vw,4.2rem);line-height:.96}
+  .project-body div>p{font-size:1.05rem;line-height:1.55}
+  .application-callout h2,.sustainable-callout h2{font-size:clamp(2.8rem,12.5vw,4.5rem);line-height:.95}
+  .energy-field{height:54vh}
+  .energy-field p{font-size:clamp(2.4rem,12vw,4.2rem)}
+}
