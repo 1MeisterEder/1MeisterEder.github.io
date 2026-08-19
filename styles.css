@@ -71,3 +71,4 @@
   .media-grid h3{font-size:clamp(2.8rem,13vw,4.5rem);line-height:.92}
   .pilot-archive-copy h2{font-size:clamp(2.8rem,13vw,4.4rem);line-height:.95}
 }
+.wordmark{display:inline-flex;align-items:center;gap:9px}.signature-logo{width:29px;height:29px;object-fit:contain;flex:0 0 auto}

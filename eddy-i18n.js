@@ -309,7 +309,27 @@
     try { localStorage.setItem('eddy-lang', lang); } catch(e) {}
   }
 
+  function addSignature(){
+    if(!document.querySelector('link[rel="icon"]')){
+      const icon = document.createElement('link');
+      icon.rel = 'icon';
+      icon.type = 'image/png';
+      icon.href = 'assets/brand/tobias-eder-logo.png';
+      document.head.appendChild(icon);
+    }
+    document.querySelectorAll('.site-header .wordmark').forEach((wordmark) => {
+      if(wordmark.querySelector('.signature-logo')) return;
+      const logo = document.createElement('img');
+      logo.className = 'signature-logo';
+      logo.src = 'assets/brand/tobias-eder-logo.png';
+      logo.alt = '';
+      logo.setAttribute('aria-hidden', 'true');
+      wordmark.appendChild(logo);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
+    addSignature();
     const button = ensureButton();
     let lang = 'en';
     try { lang = localStorage.getItem('eddy-lang') || 'en'; } catch(e) {}
