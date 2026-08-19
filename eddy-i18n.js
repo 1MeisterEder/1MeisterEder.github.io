@@ -12,7 +12,7 @@
     "Scientific\nArtivist.":"Scientific\nArtivist.",
     "Scientific\nArtist.":"Scientific\nArtist.",
     "Tobias Eder brings psychological research and artistic practice together.":"Tobias Eder verbindet psychologische Forschung mit künstlerischer Praxis.",
-    "Tobias Eder is a Scientific Artist and Empirical Aesthetics Researcher.":"Tobias Eder ist Scientific Artist und Forscher für Empirische Ästhetik.",
+    "Tobias Eder is a Scientific Artivist and Empirical Aesthetics Researcher.":"Tobias Eder ist Scientific Artivist und Forscher für Empirische Ästhetik.",
     "His interventions explore how art can capture attention, prompt reflection, and open possibilities for personal and social change.":"Seine Interventionen untersuchen, wie Kunst Aufmerksamkeit erzeugen, Reflexion auslösen und Möglichkeiten für persönlichen und gesellschaftlichen Wandel öffnen kann.",
     "He builds artistic interventions as experimental paradigms to study how people attend, feel, interpret, and act.":"Er entwickelt künstlerische Interventionen als experimentelle Paradigmen, um zu untersuchen, wie Menschen wahrnehmen, fühlen, interpretieren und handeln.",
     "Selected projects":"Ausgewählte Projekte",
