@@ -146,6 +146,7 @@
     "Request field proposal ↗":"Field Proposal anfragen ↗",
     "The research proposal for the EEG experiment is available on request. Please get in touch if you would like to receive a copy or discuss potential collaboration.":"Das Research Proposal für das EEG Experiment ist auf Anfrage erhältlich. Melden Sie sich gerne, wenn Sie ein Exemplar erhalten oder eine mögliche Zusammenarbeit besprechen möchten.",
     "Request EEG proposal ↗":"EEG Proposal anfragen ↗",
+    "CIMeC internship, Rovereto, where Tobias Eder first worked with EEG.":"CIMeC Praktikum in Rovereto, bei dem Tobias Eder erstmals mit EEG arbeitete.",
     "The project is looking for collaboration with research groups, universities, and funders interested in political psychology, public space, communication, attention, experimental design, EEG, and participatory intervention.":"Das Projekt sucht Zusammenarbeit mit Forschungsgruppen, Universitäten und Förderern, die sich für politische Psychologie, öffentlichen Raum, Kommunikation, Aufmerksamkeit, experimentelles Design, EEG und partizipative Intervention interessieren."
     ,"Archive":"Archiv",
     "Pilot":"Pilot",

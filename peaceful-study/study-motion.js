@@ -3,6 +3,7 @@
   const character = document.querySelector('.hero-character');
   const footer = document.querySelector('.study-footer');
   const footerCharacter = document.querySelector('.study-footer-character');
+  const paradoxHeading = document.querySelector('.paradox-heading');
 
   if (!hero || !character || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -59,6 +60,16 @@
       footerCharacter.style.setProperty('--footer-lift', '0px');
       footerCharacter.style.setProperty('--footer-turn', '0deg');
     });
+  }
+
+  if (paradoxHeading) {
+    const paradoxObserver = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      paradoxHeading.classList.add('is-visible');
+      paradoxObserver.disconnect();
+    }, { threshold: 0.35 });
+
+    paradoxObserver.observe(paradoxHeading);
   }
 
   updateCharacter();
