@@ -32,19 +32,28 @@
   });
 
   if (footer && footerCharacter) {
-    let hasPeeked = false;
+    let footerIsVisible = false;
+    let footerTimer = null;
+
+    function replayFooterHop() {
+      footerCharacter.classList.remove('is-hopping');
+      void footerCharacter.offsetWidth;
+      footerCharacter.classList.add('is-hopping');
+    }
+
+    function scheduleFooterHop() {
+      window.clearTimeout(footerTimer);
+      if (!footerIsVisible || document.hidden) return;
+      footerTimer = window.setTimeout(function () {
+        replayFooterHop();
+        scheduleFooterHop();
+      }, 15000);
+    }
 
     const observer = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting || hasPeeked) return;
-
-      hasPeeked = true;
-      footerCharacter.style.setProperty('--footer-lift', '22px');
-      footerCharacter.style.setProperty('--footer-turn', '7deg');
-
-      window.setTimeout(function () {
-        footerCharacter.style.setProperty('--footer-lift', '0px');
-        footerCharacter.style.setProperty('--footer-turn', '0deg');
-      }, 620);
+      footerIsVisible = entries[0].isIntersecting;
+      if (footerIsVisible) replayFooterHop();
+      scheduleFooterHop();
     }, { threshold: 0.45 });
 
     observer.observe(footer);
@@ -60,16 +69,37 @@
       footerCharacter.style.setProperty('--footer-lift', '0px');
       footerCharacter.style.setProperty('--footer-turn', '0deg');
     });
+
+    document.addEventListener('visibilitychange', scheduleFooterHop);
   }
 
   if (paradoxHeading) {
+    let paradoxIsVisible = false;
+    let paradoxTimer = null;
+
+    function replayParadoxMotion() {
+      paradoxHeading.classList.remove('is-replaying');
+      void paradoxHeading.offsetWidth;
+      paradoxHeading.classList.add('is-replaying');
+    }
+
+    function scheduleParadoxMotion() {
+      window.clearTimeout(paradoxTimer);
+      if (!paradoxIsVisible || document.hidden) return;
+      paradoxTimer = window.setTimeout(function () {
+        replayParadoxMotion();
+        scheduleParadoxMotion();
+      }, 15000);
+    }
+
     const paradoxObserver = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      paradoxHeading.classList.add('is-visible');
-      paradoxObserver.disconnect();
+      paradoxIsVisible = entries[0].isIntersecting;
+      if (paradoxIsVisible) paradoxHeading.classList.add('is-visible');
+      scheduleParadoxMotion();
     }, { threshold: 0.35 });
 
     paradoxObserver.observe(paradoxHeading);
+    document.addEventListener('visibilitychange', scheduleParadoxMotion);
   }
 
   updateCharacter();
