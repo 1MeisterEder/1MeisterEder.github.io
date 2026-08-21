@@ -23,3 +23,31 @@ if (interviewVideo) {
 
   interviewVideo.addEventListener('play', showEnglishCaptions, { once: true });
 }
+
+const hero = document.querySelector('.hero');
+const heroCharacter = document.querySelector('.hero-cigarette-head');
+const heroCharacterPeek = document.querySelector('.hero-character-peek');
+if (hero && heroCharacter && heroCharacterPeek && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let ticking = false;
+
+  const revealHeroCharacter = () => {
+    const heroTop = hero.getBoundingClientRect().top;
+    const distance = Math.max(1, window.innerHeight * 0.48);
+    const progress = Math.min(1, Math.max(0, -heroTop / distance));
+    const peekHeight = window.innerWidth <= 760 ? 46 : 76;
+    const fullHeight = heroCharacter.getBoundingClientRect().height;
+
+    heroCharacterPeek.style.height = `${peekHeight + (fullHeight - peekHeight) * progress}px`;
+    ticking = false;
+  };
+
+  const requestReveal = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(revealHeroCharacter);
+      ticking = true;
+    }
+  };
+
+  revealHeroCharacter();
+  window.addEventListener('scroll', requestReveal, { passive: true });
+}
