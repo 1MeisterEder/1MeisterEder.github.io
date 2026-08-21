@@ -81,8 +81,8 @@
 .manifesto-text{max-width:1120px;margin:0;font-size:clamp(2.25rem,3.6vw,4.8rem);line-height:1.06;letter-spacing:-.045em;text-wrap:pretty}
 
 /* Let the small demonstrator bridge the hero and the projects below it. */
-.hero{z-index:2;overflow:visible}.hero-character-peek{bottom:20px}.projects{position:relative;z-index:1;overflow:visible}
-@media(max-width:760px){.hero-character-peek{bottom:18px}}
+.hero{z-index:2;overflow:visible}.hero-character-peek{bottom:90px}.projects{position:relative;z-index:1;overflow:visible}
+@media(max-width:760px){.hero-character-peek{bottom:64px}}
 @media(prefers-reduced-motion:reduce){.hero-character-peek{height:auto}}
 .hero-profile{box-shadow:10px 10px 0 var(--orange)}
 @media(max-width:760px){.hero-profile{box-shadow:7px 7px 0 var(--orange)}}
