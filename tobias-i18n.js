@@ -319,7 +319,7 @@
     currentLang = lang;
     const button = ensureButton();
     if(button) button.textContent = lang === 'de' ? 'DE / EN' : 'EN / DE';
-    try { localStorage.setItem('eddy-lang', lang); } catch(e) {}
+    try { localStorage.setItem('tobias-lang', lang); } catch(e) {}
   }
 
   function addSignature(){
@@ -345,7 +345,7 @@
     addSignature();
     const button = ensureButton();
     let lang = 'en';
-    try { lang = localStorage.getItem('eddy-lang') || 'en'; } catch(e) {}
+    try { lang = localStorage.getItem('tobias-lang') || 'en'; } catch(e) {}
     setLang(lang);
     button?.addEventListener('click', () => setLang(currentLang === 'de' ? 'en' : 'de'));
   });
