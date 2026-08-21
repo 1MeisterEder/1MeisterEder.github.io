@@ -77,6 +77,14 @@
   .pilot-archive-copy h2{font-size:clamp(2.8rem,13vw,4.4rem);line-height:.95}
 }
 .wordmark{display:inline-flex;align-items:center;gap:9px}.signature-logo{width:29px;height:29px;object-fit:contain;flex:0 0 auto}
+/* Project headers need to remain a single, calm line on a phone. */
+@media(max-width:760px){
+  .site-header{padding:14px 18px;gap:10px}
+  .wordmark{flex:0 0 auto;white-space:nowrap;font-size:1.02rem;line-height:1}
+  .signature-logo{width:23px;height:23px}
+  .back-link{margin-left:auto;font-size:.62rem;line-height:1.2;letter-spacing:.07em}
+  .lang-toggle{flex:0 0 auto;padding:7px 10px;font-size:.62rem}
+}
 /* Keep the research statement generous, but comfortably readable on wide screens. */
 .manifesto-text{max-width:1120px;margin:0;font-size:clamp(2.25rem,3.6vw,4.8rem);line-height:1.06;letter-spacing:-.045em;text-wrap:pretty}
 
