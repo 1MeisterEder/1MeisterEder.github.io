@@ -92,5 +92,8 @@
 .hero{z-index:2;overflow:visible}.hero-character-peek{bottom:28px;height:76px;overflow:hidden}.hero-cigarette-head{position:absolute;top:0;left:0;height:auto}.projects{position:relative;z-index:1;overflow:visible}
 @media(max-width:760px){.hero-character-peek{bottom:24px;height:46px}}
 @media(prefers-reduced-motion:reduce){.hero-character-peek{height:auto}}
+
+/* Keep touch scrolling native on smaller screens. */
+@media(max-width:760px){html{overflow-x:hidden;scroll-behavior:auto}body{min-height:100%;overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}}
 .hero-profile{box-shadow:10px 10px 0 var(--orange)}
 @media(max-width:760px){.hero-profile{box-shadow:7px 7px 0 var(--orange)}}

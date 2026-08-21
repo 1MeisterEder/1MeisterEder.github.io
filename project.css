@@ -20,3 +20,5 @@
   .energy-field{height:54vh}
   .energy-field p{font-size:clamp(2.4rem,12vw,4.2rem)}
 }
+
+@media(max-width:760px){html{scroll-behavior:auto}body{min-height:100%;overflow-y:visible;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}}
