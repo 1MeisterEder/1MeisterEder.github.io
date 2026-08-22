@@ -1,14 +1,27 @@
 const galleryRoot = "assets/sustainable-reflecting/gallery/";
-const makeImages = (folder, count, extension = "png") => Array.from({ length: count }, (_, index) => galleryRoot + folder + "/" + folder + "-" + (index + 1) + "." + extension);
+const elementImages = (folder, count) => Array.from({ length: count }, (_, index) => galleryRoot + folder + "/element-" + String(index + 1).padStart(2, "0") + ".png");
+
 const galleries = {
-  cd: { title: "CD universe", images: [...makeImages("cd", 14), galleryRoot + "cd/cd-15.jpg", galleryRoot + "cd/cd-16.jpg"] },
-  mirror: { title: "Mirror universe", images: makeImages("mirror", 8) },
-  random: { title: "Projector and found parts", images: makeImages("random", 2) },
+  cd: { title: "CD universe", images: elementImages("cd", 9) },
+  mirror: { title: "Mirror universe", images: elementImages("mirror", 5) },
+  prism: { title: "Prism universe", images: elementImages("prism", 3) },
+  random: { title: "Projector and found parts", images: elementImages("random", 6) },
+};
+
+const pieces = {
+  cd: ["cd/element-01.png", "cd/element-06.png", "cd/element-07.png", "cd/element-09.png"],
+  mirror: ["mirror/element-01.png", "mirror/element-03.png", "mirror/element-05.png"],
+  prism: ["prism/element-01.png", "prism/element-02.png", "prism/element-03.png"],
+  random: ["random/element-01.png", "random/element-02.png", "random/element-03.png", "random/element-06.png"],
 };
 
 const dialog = document.querySelector(".sr-gallery-dialog");
 const title = dialog?.querySelector("#gallery-title");
 const grid = dialog?.querySelector(".sr-gallery-grid");
+
+function keyForUniverse(universe) {
+  return ["cd", "mirror", "prism", "random"].find((key) => universe.classList.contains("sr-" + key));
+}
 
 function openGallery(key) {
   const gallery = galleries[key];
@@ -26,10 +39,30 @@ function openGallery(key) {
   dialog.showModal();
 }
 
-document.querySelectorAll(".sr-universe").forEach((universe) => universe.addEventListener("click", () => {
-  const gallery = universe.querySelector(".sr-universe-open")?.dataset.gallery;
-  if (gallery) openGallery(gallery);
-}));
+document.querySelectorAll(".sr-universe").forEach((universe) => {
+  const key = keyForUniverse(universe);
+  if (!key) return;
+  const cluster = document.createElement("div");
+  cluster.className = "sr-piece-cluster";
+  cluster.setAttribute("aria-hidden", "true");
+  pieces[key].forEach((src) => {
+    const image = document.createElement("img");
+    image.src = galleryRoot + src;
+    image.alt = "";
+    cluster.append(image);
+  });
+  universe.append(cluster);
+  universe.classList.add("sr-universe-has-pieces");
+  if (!universe.querySelector(".sr-universe-open")) {
+    const button = document.createElement("button");
+    button.className = "sr-universe-open";
+    button.type = "button";
+    button.innerHTML = "View all prism material images <b>↗</b>";
+    universe.append(button);
+  }
+  universe.addEventListener("click", () => openGallery(key));
+});
+
 dialog?.querySelector(".sr-gallery-close")?.addEventListener("click", () => dialog.close());
 dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 
