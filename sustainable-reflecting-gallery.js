@@ -26,6 +26,9 @@ function openGallery(key) {
   dialog.showModal();
 }
 
-document.querySelectorAll(".sr-universe-open").forEach((button) => button.addEventListener("click", () => openGallery(button.dataset.gallery)));
+document.querySelectorAll(".sr-universe").forEach((universe) => universe.addEventListener("click", () => {
+  const gallery = universe.querySelector(".sr-universe-open")?.dataset.gallery;
+  if (gallery) openGallery(gallery);
+}));
 dialog?.querySelector(".sr-gallery-close")?.addEventListener("click", () => dialog.close());
 dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
