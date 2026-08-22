@@ -108,3 +108,15 @@ p{text-wrap:pretty}
 .project-copy>p:not(.project-meta),.project-card>p:last-child,.about-grid p,.archive-entry p,.reference-study-copy p:not(.project-meta):not(.source-note),.work-card p:not(.project-meta),.cv-section>p,.cv-entry p:not(.project-meta),.cv-timeline p,.media-grid p:not(.project-meta){max-inline-size:66ch;line-height:1.6}
 .project-copy>p:not(.project-meta)+p,.about-grid p+p,.work-card p:not(.project-meta)+p,.cv-section>p+p{margin-top:1.15em}
 .reference-pair figcaption,.work-documentation figcaption,.source-note{line-height:1.45}
+
+/* Mobile fixes: keep cards inside the viewport and keep anchor targets below the sticky header. */
+@media(max-width:760px){
+  #projects,#practice,#artist-interview,#about,#contact{scroll-margin-top:72px}
+  .project-grid{grid-template-columns:minmax(0,1fr);min-width:0}
+  .project-grid>.project-card,.project-grid>.project-card>*{min-width:0;max-width:100%}
+  .project-grid .card-image{width:100%}
+  .project-grid .project-card h3{overflow-wrap:anywhere}
+  .menu-button,.lang-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+  .main-menu a{display:flex;align-items:center;min-height:44px}
+  .footer a,.footer-bottom a,.text-link,.contact-link{display:inline-flex;align-items:center;min-height:44px}
+}
