@@ -101,3 +101,10 @@
 }
 .hero-profile{box-shadow:10px 10px 0 var(--orange)}
 @media(max-width:760px){.hero-profile{box-shadow:7px 7px 0 var(--orange)}}
+
+/* A shared reading rhythm for the editorial pages. */
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.project-copy>p:not(.project-meta),.project-card>p:last-child,.about-grid p,.archive-entry p,.reference-study-copy p:not(.project-meta):not(.source-note),.work-card p:not(.project-meta),.cv-section>p,.cv-entry p:not(.project-meta),.cv-timeline p,.media-grid p:not(.project-meta){max-inline-size:66ch;line-height:1.6}
+.project-copy>p:not(.project-meta)+p,.about-grid p+p,.work-card p:not(.project-meta)+p,.cv-section>p+p{margin-top:1.15em}
+.reference-pair figcaption,.work-documentation figcaption,.source-note{line-height:1.45}

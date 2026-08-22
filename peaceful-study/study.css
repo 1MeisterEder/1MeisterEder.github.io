@@ -46,3 +46,10 @@
 .study-footer-character.is-hopping{animation:footer-hop .7s cubic-bezier(.2,.85,.3,1.25)}
 .paradox-heading.is-replaying::after{animation:paradox-line-replay .9s ease}.paradox-heading.is-replaying .paradox-label{animation:paradox-label-replay .7s ease}.paradox-heading.is-replaying .paradox-spark{animation:paradox-spark-replay .7s cubic-bezier(.2,.9,.3,1.25)}
 @keyframes footer-hop{0%,100%{translate:0 0}45%{translate:0 -24px}}@keyframes paradox-line-replay{50%{transform:scaleX(.92);transform-origin:left}}@keyframes paradox-label-replay{50%{transform:translateX(5px)}}@keyframes paradox-spark-replay{50%{transform:rotate(18deg) scale(1.14)}}
+
+/* Editorial consistency: generous measure, clear paragraph rhythm, quiet captions. */
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.hero-bottom p,.archive-intro>p:last-child,.chapter div>p,.partners>p:not(:first-child),.pilot-copy>p,.proposal-note p{max-inline-size:66ch;line-height:1.62}
+.chapter div>p{margin:0 0 1.25em}
+.demonstrator-strip figcaption,.chapter-image figcaption,.eeg-team-portrait figcaption{line-height:1.45}
