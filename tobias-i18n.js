@@ -28,7 +28,7 @@
     "Six discarded Berlin rooftop windows become portals into a city built from below. Insects, transformed cigarettes, art, culture, and returning nature slowly remake the city together.":"Sechs weggeworfene Berliner Dachfenster werden zu Portalen in eine Stadt, die von unten gebaut wird. Insekten, verwandelte Zigaretten, Kunst, Kultur und zurückkehrende Natur gestalten diese Stadt langsam gemeinsam neu.",
     "Participatory mobile sculpture · In development":"Partizipative mobile Skulptur · In Entwicklung",
     "Sustainable Reflecting":"Sustainable Reflecting",
-    "A mobile sculpture powered by its visitors connects physical reflection, personal effort, and the possibility of sustainable change.":"Eine mobile Skulptur, die durch ihre Besucherinnen und Besucher angetrieben wird, verbindet physische Spiegelung, eigene Anstrengung und die Möglichkeit nachhaltiger Veränderung.",
+    "A participatory mobile installation in which visitor effort activates and contributes energy to a regulated light system, making causal contribution materially and aesthetically legible.":"Eine partizipative mobile Installation, in der die Anstrengung von Besucherinnen und Besuchern das Werk aktiviert und Energie zu einem regulierten Lichtsystem beiträgt. So wird kausale Beteiligung materiell und ästhetisch erfahrbar.",
     "Collective practice · WaMü Kollektiv":"Kollektive Praxis · WaMü Kollektiv",
     "The collective website gathers ALLESANDERSSTADT, WaMüLage, clothing, material transformation, and the shared question: “What is rubbish?”":"Die Kollektiv Website versammelt ALLESANDERSSTADT, WaMüLage, Kleidung, Materialtransformation und die gemeinsame Frage: „Was ist Müll?”",
     "Archive · Selection in preparation":"Archiv · Auswahl in Vorbereitung",
