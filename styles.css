@@ -95,5 +95,9 @@
 
 /* Keep touch scrolling native on smaller screens. */
 @media(max-width:760px){html{overflow-x:hidden;scroll-behavior:auto}body{min-height:100%;overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}}
+@media(max-width:760px){
+  html{overflow-x:clip;overflow-y:visible;touch-action:pan-y}
+  body{width:100%;min-width:0;overflow-x:clip;overflow-y:visible;touch-action:pan-y;overscroll-behavior:none}
+}
 .hero-profile{box-shadow:10px 10px 0 var(--orange)}
 @media(max-width:760px){.hero-profile{box-shadow:7px 7px 0 var(--orange)}}

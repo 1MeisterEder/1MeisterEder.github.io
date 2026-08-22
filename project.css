@@ -22,3 +22,10 @@
 }
 
 @media(max-width:760px){html{scroll-behavior:auto}body{min-height:100%;overflow-y:visible;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}}
+@media(max-width:760px){
+  html{overflow-x:clip;overflow-y:visible;touch-action:pan-y}
+  body{width:100%;min-width:0;overflow-x:clip;overflow-y:visible;touch-action:pan-y;overscroll-behavior:none}
+  .project-body,.project-body>aside,.project-body>div{width:100%;min-width:0;margin-left:0;margin-right:0}
+  .project-body>div{padding:0;text-align:left}
+  .project-body div>p,.project-body h2,.project-body ul{max-width:100%}
+}
