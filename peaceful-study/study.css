@@ -14,7 +14,19 @@
 @media(max-width:760px){header{position:static;align-items:flex-start;gap:14px;flex-wrap:wrap}header nav{display:none}.study-hero{padding:7vh 18px}.study-hero h1{font-size:17vw}.hero-bottom,.archive-intro,.chapter,.pilot-intro,.eeg-team-layout{grid-template-columns:1fr}.hero-bottom p,.archive-intro>p:last-child{grid-column:1}.archive-intro,.chapter,.partners{padding:9vh 18px}.study-index a{grid-template-columns:38px 1fr;padding:21px 18px}.study-index em{grid-column:2}.chapter h2,.partners h2{font-size:3.2rem}.study-image img{max-height:none}.demonstrator-strip{grid-template-columns:1fr 1fr}.demonstrator-strip img{height:48vh}.chapter-image-small,.pilot-intro .chapter-image-small{max-width:none;margin-left:0;justify-self:stretch}.pilot-intro .chapter-image-small img{max-height:none;object-fit:contain}.eeg-team-portrait{max-width:460px}.paradox-heading{column-gap:10px;margin-bottom:32px}.paradox-heading strong{font-size:17vw}.accent .paradox-heading+h2{font-size:14vw}}
 @media(prefers-reduced-motion:reduce){.paradox-heading::after{transition:none}.paradox-label,.paradox-spark{transform:none;opacity:1;transition:none}}
 @media(max-width:480px){.demonstrator-strip{grid-template-columns:1fr}.demonstrator-strip img{height:auto}}
+
+@media(max-width:760px){html{scroll-behavior:auto;overflow-x:hidden}body{min-height:100%;overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}}
 @media(max-width:600px){.proposal-note{grid-template-columns:1fr;align-items:start}.proposal-note a{justify-self:start}}
+@media(max-width:760px){
+  html{overflow-x:clip;overflow-y:visible;touch-action:pan-y}
+  body{width:100%;min-width:0;overflow-x:clip;overflow-y:visible;touch-action:pan-y;overscroll-behavior:none}
+  .chapter,.chapter>aside,.chapter>div{width:100%;min-width:0;margin-left:0;margin-right:0}
+  #proposal{display:block;padding-top:8vh;padding-bottom:8vh}
+  #proposal>aside{margin-bottom:24px}
+  #proposal>div{border:1px solid var(--line);padding:24px 18px;background:rgba(255,255,255,.34)}
+  .chapter>div{padding:0;text-align:left}
+  .chapter div>p,.chapter h2,.chapter ul,.chapter figure{max-width:100%}
+}
 .hero-character{grid-column:1;justify-self:end;align-self:end;width:clamp(105px,12vw,180px);height:auto;object-fit:contain;margin:0 2vw -1vh 0;transform:translate3d(0,calc(var(--scroll-lift,0px) * -1),0) rotate(calc(-4deg + var(--scroll-turn,0deg) + var(--pointer-turn,0deg)));transform-origin:50% 82%;transition:transform .32s ease-out;will-change:transform;opacity:1;filter:saturate(1.25) contrast(1.08)}.study-footer{position:relative;overflow:visible;min-height:138px;padding:24px 3vw 72px}.study-footer>*:not(.study-footer-character){position:relative;z-index:2}.study-footer span{margin-right:clamp(105px,13vw,165px);text-align:right}.study-footer-character{position:absolute;right:2vw;bottom:-20px;z-index:1;width:clamp(82px,8.6vw,126px);height:auto;object-fit:contain;opacity:1;filter:saturate(1.16) contrast(1.05);transform:translate3d(0,calc(var(--footer-lift,0px) * -1),0) rotate(calc(-4deg + var(--footer-turn,0deg)));transform-origin:50% 82%;transition:transform .42s cubic-bezier(.2,.85,.3,1.25);will-change:transform;pointer-events:auto}
 @media(max-width:760px){.hero-character{grid-column:1;justify-self:start;width:118px;margin:8px 0 2px;opacity:1}.study-footer{min-height:142px;align-items:flex-start;gap:16px;padding-bottom:76px}.study-footer span{margin-right:100px;text-align:right}.study-footer-character{right:8px;bottom:-14px;width:92px;opacity:1}}
 /* Mobile: give the study its own compact header and a footer with a real grid.
@@ -34,3 +46,10 @@
 .study-footer-character.is-hopping{animation:footer-hop .7s cubic-bezier(.2,.85,.3,1.25)}
 .paradox-heading.is-replaying::after{animation:paradox-line-replay .9s ease}.paradox-heading.is-replaying .paradox-label{animation:paradox-label-replay .7s ease}.paradox-heading.is-replaying .paradox-spark{animation:paradox-spark-replay .7s cubic-bezier(.2,.9,.3,1.25)}
 @keyframes footer-hop{0%,100%{translate:0 0}45%{translate:0 -24px}}@keyframes paradox-line-replay{50%{transform:scaleX(.92);transform-origin:left}}@keyframes paradox-label-replay{50%{transform:translateX(5px)}}@keyframes paradox-spark-replay{50%{transform:rotate(18deg) scale(1.14)}}
+
+/* Editorial consistency: generous measure, clear paragraph rhythm, quiet captions. */
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.hero-bottom p,.archive-intro>p:last-child,.chapter div>p,.partners>p:not(:first-child),.pilot-copy>p,.proposal-note p{max-inline-size:66ch;line-height:1.62}
+.chapter div>p{margin:0 0 1.25em}
+.demonstrator-strip figcaption,.chapter-image figcaption,.eeg-team-portrait figcaption{line-height:1.45}
