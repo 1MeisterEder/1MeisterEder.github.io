@@ -113,7 +113,8 @@ p{text-wrap:pretty}
 @media(max-width:760px){
   #projects,#practice,#artist-interview,#about,#contact{scroll-margin-top:72px}
   .project-grid{grid-template-columns:minmax(0,1fr);min-width:0}
-  .project-grid>.project-card,.project-grid>.project-card>*{min-width:0;max-width:100%}
+  .project-grid>.project-card{width:100%;min-width:0;max-width:100%}
+  .project-grid>.project-card>*{min-width:0;max-width:100%}
   .project-grid .card-image{width:100%}
   .project-grid .project-card h3{overflow-wrap:anywhere}
   .menu-button,.lang-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
