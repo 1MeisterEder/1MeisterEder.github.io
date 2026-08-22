@@ -32,3 +32,6 @@ document.querySelectorAll(".sr-universe").forEach((universe) => universe.addEven
 }));
 dialog?.querySelector(".sr-gallery-close")?.addEventListener("click", () => dialog.close());
 dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+
+const dragon = document.querySelector(".sr-dragon");
+if (dragon) dragon.src = "assets/sustainable-reflecting/dragon-transparent.png";
