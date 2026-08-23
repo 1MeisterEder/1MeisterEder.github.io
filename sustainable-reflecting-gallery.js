@@ -5,7 +5,7 @@ const galleries = {
   cd: { title: "CD universe", images: elementImages("cd", 9) },
   mirror: { title: "Mirror universe", images: ["element-01.png", "element-03.png", "element-04.png", "element-05.png"].map((file) => galleryRoot + "mirror/" + file) },
   prism: { title: "Prism universe", images: elementImages("prism", 3) },
-  random: { title: "Projector and found parts", images: elementImages("random", 6) },
+  random: { title: "Found objects universe", images: elementImages("random", 6) },
 };
 
 const pieces = {
