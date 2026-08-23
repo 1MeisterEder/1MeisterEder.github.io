@@ -9,10 +9,10 @@ const galleries = {
 };
 
 const pieces = {
-  cd: ["cd/element-01.png", "cd/element-06.png", "cd/element-07.png", "cd/element-09.png"],
+  cd: ["cd/element-01.png", "cd/element-06.png", "cd/element-09.png"],
   mirror: ["mirror/element-01.png", "mirror/element-03.png", "mirror/element-05.png"],
-  prism: ["prism/element-01.png", "prism/element-02.png", "prism/element-03.png"],
-  random: ["random/element-01.png", "random/element-02.png", "random/element-03.png", "random/element-06.png"],
+  prism: ["prism/element-02.png"],
+  random: ["random/element-01.png", "random/element-02.png"],
 };
 
 const dialog = document.querySelector(".sr-gallery-dialog");
