@@ -226,6 +226,7 @@
     "Participatory public installation at Tempelhofer Feld. Visitors contributed found or self produced rubbish to an evolving collective composition.":"Partizipative öffentliche Installation auf dem Tempelhofer Feld. Besucherinnen und Besucher trugen gefundenen oder selbst produzierten Müll zu einer wachsenden kollektiven Komposition bei.",
     "Selected exhibitions & public presentations":"Ausgewählte Ausstellungen & öffentliche Präsentationen",
     "Research Experience":"Forschungserfahrung",
+    "Collective Practice & Networks":"Kollektive Praxis & Netzwerke",
     "January 2026 to present":"Januar 2026 bis heute",
     "Member · EDGE Neuroscience & Art, Berlin":"Mitglied · EDGE Neuroscience & Art, Berlin",
     "Member of an international nonprofit community connecting neuroscience and the arts. EDGE creates space for exchange through workshops, exhibitions, and speaker series on neuroaesthetics, cognition, emotion, and well being.":"Mitglied einer internationalen gemeinnützigen Gemeinschaft, die Neurowissenschaft und Kunst verbindet. EDGE schafft Austausch durch Workshops, Ausstellungen und Vortragsreihen zu Neuroästhetik, Kognition, Emotion und Wohlbefinden.",
