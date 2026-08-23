@@ -69,43 +69,38 @@ dialog?.addEventListener("click", (event) => { if (event.target === dialog) dial
 const dragon = document.querySelector(".sr-dragon");
 if (dragon) {
   dragon.src = "assets/sustainable-reflecting/dragon-transparent.png";
+}
 
-  const orbit = document.querySelector(".sr-orbit");
-  const mobileQuery = window.matchMedia("(max-width: 760px)");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  let mobileFlight;
+const orbit = document.querySelector(".sr-orbit");
+if (orbit && !orbit.querySelector(".sr-mobile-flight")) {
+  const flight = document.createElement("div");
+  flight.className = "sr-mobile-flight";
+  flight.setAttribute("aria-hidden", "true");
+  flight.innerHTML = '<span class="sr-mobile-galaxy sr-mobile-galaxy-cd">01</span><span class="sr-mobile-galaxy sr-mobile-galaxy-mirror">02</span><span class="sr-mobile-galaxy sr-mobile-galaxy-prism">03</span><span class="sr-mobile-galaxy sr-mobile-galaxy-found">04</span><img class="sr-mobile-stage-dragon" src="assets/sustainable-reflecting/dragon-transparent.png" alt="">';
+  orbit.insertBefore(flight, orbit.querySelector(".sr-universe"));
+}
 
-  function stopMobileFlight() {
-    if (mobileFlight) cancelAnimationFrame(mobileFlight);
-    mobileFlight = undefined;
-    dragon.style.left = "";
-    dragon.style.top = "";
-    dragon.style.transform = "";
-  }
-
-  function startMobileFlight() {
-    stopMobileFlight();
-    if (!orbit || !mobileQuery.matches || reducedMotion.matches) return;
-    let startedAt;
-    const duration = 18000;
-    const animate = (time) => {
-      if (!mobileQuery.matches || reducedMotion.matches) return stopMobileFlight();
-      if (!startedAt) startedAt = time;
-      const progress = ((time - startedAt) % duration) / duration;
-      const angle = progress * Math.PI * 2 - Math.PI / 2;
-      const x = 50 + Math.cos(angle) * 35;
-      const y = 50 + Math.sin(angle) * 44;
-      const tilt = Math.sin(angle) * 7;
-      const scale = 0.94 + (Math.cos(angle) + 1) * 0.05;
-      dragon.style.left = x + "%";
-      dragon.style.top = y + "%";
-      dragon.style.transform = "translate(-50%, -50%) rotate(" + tilt + "deg) scale(" + scale + ")";
-      mobileFlight = requestAnimationFrame(animate);
-    };
-    mobileFlight = requestAnimationFrame(animate);
-  }
-
-  startMobileFlight();
-  mobileQuery.addEventListener("change", startMobileFlight);
-  reducedMotion.addEventListener("change", startMobileFlight);
+const mobileFlightStyles = `
+@media(max-width:760px){
+  .sr-orbit{position:relative;display:block;padding:0 0 2rem!important}
+  .sr-orbit>.sr-orbit-line,.sr-orbit>.sr-dragon{display:none!important}
+  .sr-mobile-flight{position:relative;display:block;height:250px;margin:0 0 22px;overflow:hidden;border:1px solid rgba(223,175,86,.38);border-radius:2px;background:radial-gradient(ellipse at center,#24474a 0%,#151a1a 48%,#0d0e0d 100%);box-shadow:inset 0 0 52px rgba(0,0,0,.48)}
+  .sr-mobile-flight:before{content:"";position:absolute;z-index:0;inset:25px 18px;border:1px solid rgba(223,175,86,.53);border-radius:50%;transform:rotate(-8deg)}
+  .sr-mobile-flight:after{content:"four material universes";position:absolute;z-index:1;left:16px;bottom:13px;color:rgba(240,237,229,.6);font:700 .52rem/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  .sr-mobile-galaxy{position:absolute;z-index:2;display:grid;place-items:center;width:43px;height:43px;border:1px solid rgba(240,237,229,.72);border-radius:50%;color:#f0ede5;font:700 .62rem/1 Arial,sans-serif;letter-spacing:.08em;box-shadow:0 0 0 6px rgba(17,17,15,.28),0 0 18px currentColor}
+  .sr-mobile-galaxy-cd{top:38px;left:25%;color:#e4c464;background:rgba(21,69,74,.88)}
+  .sr-mobile-galaxy-mirror{top:58px;right:18%;color:#d9d4e7;background:rgba(67,57,83,.85)}
+  .sr-mobile-galaxy-prism{bottom:42px;left:18%;color:#b983dc;background:rgba(39,65,112,.86)}
+  .sr-mobile-galaxy-found{right:27%;bottom:35px;color:#dda64e;background:rgba(89,62,19,.88)}
+  .sr-mobile-stage-dragon{position:absolute;z-index:4;width:clamp(106px,31vw,145px);height:auto;top:5%;left:8%;filter:drop-shadow(0 12px 12px rgba(0,0,0,.72)) drop-shadow(0 0 10px rgba(223,175,86,.3));animation:sr-mobile-stage-flight 13s ease-in-out infinite;will-change:transform}
+  @keyframes sr-mobile-stage-flight{0%,100%{transform:translate(0,0) rotate(-4deg)}24%{transform:translate(176%,18px) rotate(5deg)}50%{transform:translate(152%,122px) rotate(-3deg)}76%{transform:translate(-6%,132px) rotate(4deg)}}
+}
+@media(max-width:380px){.sr-mobile-flight{height:226px}.sr-mobile-stage-dragon{width:102px}@keyframes sr-mobile-stage-flight{0%,100%{transform:translate(0,0) rotate(-4deg)}24%{transform:translate(168%,13px) rotate(5deg)}50%{transform:translate(142%,106px) rotate(-3deg)}76%{transform:translate(-4%,116px) rotate(4deg)}}}
+@media(prefers-reduced-motion:reduce){.sr-mobile-stage-dragon{animation:none!important}}
+`;
+if (!document.getElementById("sr-mobile-flight-styles")) {
+  const style = document.createElement("style");
+  style.id = "sr-mobile-flight-styles";
+  style.textContent = mobileFlightStyles;
+  document.head.append(style);
 }
