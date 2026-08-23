@@ -231,6 +231,7 @@
     "Co founder and artist · WaMü Kollektiv":"Mitgründer und Künstler · WaMü Kollektiv",
     "WaMü Kollektiv, “Was ist Müll?” or “What is rubbish?”, transforms discarded materials into public installations and participatory work. Together with Tim Gojovi, Tobias Eder develops sculpture, fashion, music, and urban stories that address sustainability, overconsumption, cultural space, and city making from below.":"WaMü Kollektiv, „Was ist Müll?“, verwandelt weggeworfene Materialien in öffentliche Installationen und partizipative Arbeiten. Gemeinsam mit Tim Gojovi entwickelt Tobias Eder Skulptur, Mode, Musik und urbane Geschichten zu Nachhaltigkeit, Überkonsum, kulturellem Raum und Stadtentwicklung von unten.",
     "Visit wamue.art ↗":"wamue.art besuchen ↗",
+    "Visit edge-neuro.art ↗":"edge-neuro.art besuchen ↗",
     "January 2026 to present":"Januar 2026 bis heute",
     "Member · EDGE Neuroscience & Art, Berlin":"Mitglied · EDGE Neuroscience & Art, Berlin",
     "Member of an international nonprofit community connecting neuroscience and the arts. EDGE creates space for exchange through workshops, exhibitions, and speaker series on neuroaesthetics, cognition, emotion, and well being.":"Mitglied einer internationalen gemeinnützigen Gemeinschaft, die Neurowissenschaft und Kunst verbindet. EDGE schafft Austausch durch Workshops, Ausstellungen und Vortragsreihen zu Neuroästhetik, Kognition, Emotion und Wohlbefinden.",
