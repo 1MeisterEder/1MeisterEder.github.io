@@ -109,7 +109,17 @@
 
 /* Let the small demonstrator bridge the hero and the projects below it. */
 .hero{z-index:2;overflow:visible}.hero-character-peek{bottom:28px;height:76px;overflow:hidden}.hero-cigarette-head{position:absolute;top:0;left:0;height:auto}.projects{position:relative;z-index:1;overflow:visible}
-@media(max-width:760px){.hero-character-peek{bottom:24px;height:46px}}
+@media(max-width:760px){
+  .hero-character-peek{
+    top:clamp(150px,31vw,205px);
+    right:12px;
+    bottom:auto;
+    width:78px;
+    height:46px;
+    transform:translate3d(0,calc(var(--hero-scroll-lift,0px) * -1),0);
+    transition:height .08s linear,transform .14s ease-out;
+  }
+}
 @media(prefers-reduced-motion:reduce){.hero-character-peek{height:auto}}
 
 /* Keep touch scrolling native on smaller screens. */

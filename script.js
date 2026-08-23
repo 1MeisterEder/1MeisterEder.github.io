@@ -38,6 +38,10 @@ if (hero && heroCharacter && heroCharacterPeek && !window.matchMedia('(prefers-r
     const fullHeight = heroCharacter.getBoundingClientRect().height;
 
     heroCharacterPeek.style.height = `${peekHeight + (fullHeight - peekHeight) * progress}px`;
+    // On phones the small demonstrator sits beside the title and rises as the
+    // page is explored, rather than getting stranded at the bottom of the hero.
+    const mobileLift = window.innerWidth <= 760 ? Math.round(progress * 82) : 0;
+    heroCharacterPeek.style.setProperty('--hero-scroll-lift', `${mobileLift}px`);
     ticking = false;
   };
 
