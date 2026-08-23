@@ -67,4 +67,45 @@ dialog?.querySelector(".sr-gallery-close")?.addEventListener("click", () => dial
 dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 
 const dragon = document.querySelector(".sr-dragon");
-if (dragon) dragon.src = "assets/sustainable-reflecting/dragon-transparent.png";
+if (dragon) {
+  dragon.src = "assets/sustainable-reflecting/dragon-transparent.png";
+
+  const orbit = document.querySelector(".sr-orbit");
+  const mobileQuery = window.matchMedia("(max-width: 760px)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let mobileFlight;
+
+  function stopMobileFlight() {
+    if (mobileFlight) cancelAnimationFrame(mobileFlight);
+    mobileFlight = undefined;
+    dragon.style.left = "";
+    dragon.style.top = "";
+    dragon.style.transform = "";
+  }
+
+  function startMobileFlight() {
+    stopMobileFlight();
+    if (!orbit || !mobileQuery.matches || reducedMotion.matches) return;
+    let startedAt;
+    const duration = 18000;
+    const animate = (time) => {
+      if (!mobileQuery.matches || reducedMotion.matches) return stopMobileFlight();
+      if (!startedAt) startedAt = time;
+      const progress = ((time - startedAt) % duration) / duration;
+      const angle = progress * Math.PI * 2 - Math.PI / 2;
+      const x = 50 + Math.cos(angle) * 35;
+      const y = 50 + Math.sin(angle) * 44;
+      const tilt = Math.sin(angle) * 7;
+      const scale = 0.94 + (Math.cos(angle) + 1) * 0.05;
+      dragon.style.left = x + "%";
+      dragon.style.top = y + "%";
+      dragon.style.transform = "translate(-50%, -50%) rotate(" + tilt + "deg) scale(" + scale + ")";
+      mobileFlight = requestAnimationFrame(animate);
+    };
+    mobileFlight = requestAnimationFrame(animate);
+  }
+
+  startMobileFlight();
+  mobileQuery.addEventListener("change", startMobileFlight);
+  reducedMotion.addEventListener("change", startMobileFlight);
+}
