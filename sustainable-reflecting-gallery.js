@@ -72,7 +72,16 @@ if (dragon) {
 }
 
 const orbit = document.querySelector(".sr-orbit");
-if (orbit && !orbit.querySelector(".sr-mobile-flight")) {
+const mobileUniverseQuery = window.matchMedia("(max-width: 760px)");
+
+function mountMobileUniverseFlight() {
+  if (!orbit) return;
+  const existingFlight = orbit.querySelector(".sr-mobile-flight");
+  if (!mobileUniverseQuery.matches) {
+    existingFlight?.remove();
+    return;
+  }
+  if (existingFlight) return;
   const flight = document.createElement("div");
   flight.className = "sr-mobile-flight";
   flight.setAttribute("aria-label", "Select a material universe to view its images");
@@ -82,6 +91,8 @@ if (orbit && !orbit.querySelector(".sr-mobile-flight")) {
   });
   orbit.insertBefore(flight, orbit.querySelector(".sr-universe"));
 }
+mountMobileUniverseFlight();
+mobileUniverseQuery.addEventListener("change", mountMobileUniverseFlight);
 
 const mobileFlightStyles = `
 @media(max-width:760px){
