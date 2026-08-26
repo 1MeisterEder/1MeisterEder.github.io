@@ -57,7 +57,7 @@ document.querySelectorAll(".sr-universe").forEach((universe) => {
     const button = document.createElement("button");
     button.className = "sr-universe-open";
     button.type = "button";
-    button.innerHTML = "View all prism material images <b>↗</b>";
+    button.innerHTML = 'View all prism material images <span class="ui-arrow" aria-hidden="true"></span>';
     universe.append(button);
   }
   universe.addEventListener("click", () => openGallery(key));

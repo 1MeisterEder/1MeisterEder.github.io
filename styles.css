@@ -140,9 +140,9 @@ p{text-wrap:pretty}
 .reference-pair figcaption,.work-documentation figcaption,.source-note{line-height:1.45}
 
 /* Stable, browser-drawn external-link arrow — never an emoji glyph. */
-.text-link .ui-arrow{position:relative;display:inline-block;width:.78em;height:.78em;margin-left:.55em;vertical-align:-.04em;flex:0 0 auto}
-.text-link .ui-arrow::before{content:"";position:absolute;top:0;right:0;width:.43em;height:.43em;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}
-.text-link .ui-arrow::after{content:"";position:absolute;bottom:.06em;left:.03em;width:.96em;border-top:1.5px solid currentColor;transform:rotate(-45deg);transform-origin:left center}
+.ui-arrow{position:relative;display:inline-block;width:.78em;height:.78em;margin-left:.55em;vertical-align:-.04em;flex:0 0 auto}
+.ui-arrow::before{content:"";position:absolute;top:0;right:0;width:.43em;height:.43em;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}
+.ui-arrow::after{content:"";position:absolute;bottom:.06em;left:.03em;width:.96em;border-top:1.5px solid currentColor;transform:rotate(-45deg);transform-origin:left center}
 
 /* Mobile fixes: keep cards inside the viewport and keep anchor targets below the sticky header. */
 @media(max-width:760px){

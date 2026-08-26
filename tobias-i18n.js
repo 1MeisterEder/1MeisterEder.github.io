@@ -290,8 +290,9 @@
     const raw = node.nodeValue;
     const trimmed = raw.trim();
     if(!trimmed) return;
-    const direct = dict[trimmed];
-    const compactKey = Object.keys(dict).find(key => normalise(key) === normalise(trimmed));
+    const arrowVariant = `${trimmed} ↗`;
+    const direct = dict[trimmed] || dict[arrowVariant];
+    const compactKey = Object.keys(dict).find(key => normalise(key) === normalise(trimmed) || normalise(key) === normalise(arrowVariant));
     const value = direct || (compactKey ? dict[compactKey] : null);
     if(!value) return;
     node.nodeValue = raw.replace(trimmed, value);
@@ -308,6 +309,29 @@
     const nodes = [];
     while(walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(node => translateTextNode(node, dict));
+  }
+
+  function renderUiArrows(){
+    document.querySelectorAll('a, button').forEach((control) => {
+      const walker = document.createTreeWalker(control, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while(walker.nextNode()) nodes.push(walker.currentNode);
+      let foundArrow = false;
+      nodes.forEach((node) => {
+        if(!node.nodeValue.includes('↗')) return;
+        node.nodeValue = node.nodeValue.replace(/\s*↗/g, '');
+        foundArrow = true;
+      });
+      control.querySelectorAll('b').forEach((element) => {
+        if(!element.textContent.trim()) element.remove();
+      });
+      if(foundArrow && !control.querySelector('.ui-arrow')) {
+        const arrow = document.createElement('span');
+        arrow.className = 'ui-arrow';
+        arrow.setAttribute('aria-hidden', 'true');
+        control.appendChild(arrow);
+      }
+    });
   }
 
   function ensureButton(){
@@ -327,7 +351,9 @@
 
   function setLang(lang){
     const dict = lang === 'de' ? de : en;
+    renderUiArrows();
     walk(document.body, dict);
+    renderUiArrows();
     document.documentElement.lang = lang;
     currentLang = lang;
     const button = ensureButton();
