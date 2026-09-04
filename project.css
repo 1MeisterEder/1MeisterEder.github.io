@@ -56,3 +56,4 @@
 .sr-universe>img{mix-blend-mode:screen}
 @media(max-width:760px){.sr-orbit{position:relative;display:block;padding:5.5rem 0 4.5rem}.sr-orbit-line{inset:2% 3%;border-color:rgba(223,175,86,.38)}.sr-dragon{position:absolute;z-index:6;top:7%;left:15%;display:block;width:clamp(88px,24vw,122px);height:auto;margin:0;animation:none;will-change:left,top,transform;filter:drop-shadow(0 14px 18px rgba(0,0,0,.72)) drop-shadow(0 0 10px rgba(223,175,86,.22))}}
 .sr-next .sr-sketch{min-height:0;margin:7vh 0 0;border:1px solid #878980;background:#f3f1e9;overflow:hidden}.sr-next .sr-sketch>img{display:block;width:100%;height:auto;object-fit:contain}
+.sr-next .sr-current-elements{background:#f3f1e9}
