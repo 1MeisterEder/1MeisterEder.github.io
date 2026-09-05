@@ -131,6 +131,7 @@
 }
 .hero-profile{box-shadow:10px 10px 0 var(--orange)}
 @media(max-width:760px){.hero-profile{box-shadow:7px 7px 0 var(--orange)}}
+.mobile-image-zoom{touch-action:manipulation}.mobile-image-zoom img{transform-origin:var(--zoom-x,50%) var(--zoom-y,50%)}.mobile-image-zoom.is-mobile-zoomed img{transform:scale(1.68)}
 
 /* A shared reading rhythm for the editorial pages. */
 h1,h2,h3{text-wrap:balance}
