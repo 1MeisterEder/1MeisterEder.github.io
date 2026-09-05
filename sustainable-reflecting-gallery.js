@@ -120,3 +120,26 @@ if (!document.getElementById("sr-mobile-flight-styles")) {
   style.textContent = mobileFlightStyles;
   document.head.append(style);
 }
+
+const collaboration = document.querySelector(".sr-collaboration");
+const collaborationCharacter = document.querySelector(".sr-collaboration-character");
+if (collaboration && collaborationCharacter && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let frame = null;
+
+  const moveCollaborationCharacter = () => {
+    const bounds = collaboration.getBoundingClientRect();
+    const start = window.innerHeight * 0.72;
+    const travel = Math.max(bounds.height * 0.72, 1);
+    const progress = Math.min(1, Math.max(0, (start - bounds.top) / travel));
+    collaborationCharacter.style.setProperty("--sr-character-lift", `${Math.round(progress * -175)}px`);
+    frame = null;
+  };
+
+  const requestCharacterMove = () => {
+    if (frame === null) frame = window.requestAnimationFrame(moveCollaborationCharacter);
+  };
+
+  moveCollaborationCharacter();
+  window.addEventListener("scroll", requestCharacterMove, { passive: true });
+  window.addEventListener("resize", requestCharacterMove);
+}
