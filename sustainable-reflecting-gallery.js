@@ -6,6 +6,10 @@ const galleries = {
   mirror: { title: "Mirror universe", images: ["element-01.png", "element-03.png", "element-04.png", "element-05.png"].map((file) => galleryRoot + "mirror/" + file) },
   prism: { title: "Prism universe", images: elementImages("prism", 3) },
   random: { title: "Found objects universe", images: elementImages("random", 6) },
+  dragon: {
+    title: "Dragon — close-up details",
+    images: ["front.png", "below.png", "side.png", "dragon-detail.png", "wing-detail.png"].map((file) => galleryRoot + "dragon/" + file),
+  },
 };
 
 const pieces = {
@@ -67,8 +71,21 @@ dialog?.querySelector(".sr-gallery-close")?.addEventListener("click", () => dial
 dialog?.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 
 const dragon = document.querySelector(".sr-dragon");
+function makeDragonGalleryTrigger(element) {
+  if (!element) return;
+  const openDragonGallery = () => openGallery("dragon");
+  element.addEventListener("click", openDragonGallery);
+  element.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openDragonGallery();
+    }
+  });
+}
+
 if (dragon) {
   dragon.src = "assets/sustainable-reflecting/dragon-transparent.png";
+  makeDragonGalleryTrigger(dragon);
 }
 
 const orbit = document.querySelector(".sr-orbit");
@@ -85,10 +102,11 @@ function mountMobileUniverseFlight() {
   const flight = document.createElement("div");
   flight.className = "sr-mobile-flight";
   flight.setAttribute("aria-label", "Select a material universe to view its images");
-  flight.innerHTML = '<button class="sr-mobile-galaxy sr-mobile-galaxy-cd" type="button" data-gallery="cd" aria-label="Open CD universe images">01</button><button class="sr-mobile-galaxy sr-mobile-galaxy-mirror" type="button" data-gallery="mirror" aria-label="Open mirror universe images">02</button><button class="sr-mobile-galaxy sr-mobile-galaxy-prism" type="button" data-gallery="prism" aria-label="Open prism universe images">03</button><button class="sr-mobile-galaxy sr-mobile-galaxy-found" type="button" data-gallery="random" aria-label="Open found objects universe images">04</button><div class="sr-mobile-dragon-orbit" aria-hidden="true"><img class="sr-mobile-stage-dragon" src="assets/sustainable-reflecting/dragon-transparent.png" alt=""></div>';
+  flight.innerHTML = '<button class="sr-mobile-galaxy sr-mobile-galaxy-cd" type="button" data-gallery="cd" aria-label="Open CD universe images">01</button><button class="sr-mobile-galaxy sr-mobile-galaxy-mirror" type="button" data-gallery="mirror" aria-label="Open mirror universe images">02</button><button class="sr-mobile-galaxy sr-mobile-galaxy-prism" type="button" data-gallery="prism" aria-label="Open prism universe images">03</button><button class="sr-mobile-galaxy sr-mobile-galaxy-found" type="button" data-gallery="random" aria-label="Open found objects universe images">04</button><div class="sr-mobile-dragon-orbit"><img class="sr-mobile-stage-dragon" src="assets/sustainable-reflecting/dragon-transparent.png" alt="Dragon figure" role="button" tabindex="0" aria-label="View dragon detail images"></div>';
   flight.querySelectorAll("[data-gallery]").forEach((button) => {
     button.addEventListener("click", () => openGallery(button.dataset.gallery));
   });
+  makeDragonGalleryTrigger(flight.querySelector(".sr-mobile-stage-dragon"));
   orbit.insertBefore(flight, orbit.querySelector(".sr-universe"));
 }
 mountMobileUniverseFlight();
@@ -108,7 +126,7 @@ const mobileFlightStyles = `
   .sr-mobile-galaxy-prism{bottom:42px;left:18%;color:#b983dc;background:rgba(39,65,112,.86)}
   .sr-mobile-galaxy-found{right:27%;bottom:35px;color:#dda64e;background:rgba(89,62,19,.88)}
   .sr-mobile-dragon-orbit{position:absolute;z-index:4;inset:23px 14px;animation:sr-mobile-orbit 13s linear infinite;will-change:transform}
-  .sr-mobile-stage-dragon{position:absolute;width:clamp(106px,31vw,145px);height:auto;left:50%;top:-28px;transform:translateX(-50%);filter:drop-shadow(0 12px 12px rgba(0,0,0,.72)) drop-shadow(0 0 10px rgba(223,175,86,.3));animation:sr-mobile-dragon-level 13s linear infinite}
+  .sr-mobile-stage-dragon{position:absolute;width:clamp(106px,31vw,145px);height:auto;left:50%;top:-28px;transform:translateX(-50%);cursor:zoom-in;filter:drop-shadow(0 12px 12px rgba(0,0,0,.72)) drop-shadow(0 0 10px rgba(223,175,86,.3));animation:sr-mobile-dragon-level 13s linear infinite}.sr-mobile-stage-dragon:focus-visible{outline:2px solid #f0ede5;outline-offset:4px}
   @keyframes sr-mobile-orbit{to{transform:rotate(360deg)}}@keyframes sr-mobile-dragon-level{to{transform:translateX(-50%) rotate(-360deg)}}
 }
 @media(max-width:380px){.sr-mobile-flight{height:226px}.sr-mobile-stage-dragon{width:102px}}
